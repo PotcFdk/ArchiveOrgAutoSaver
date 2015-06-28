@@ -40,7 +40,7 @@ var form1 = document.getElementsByName('form1');
 if (error
 	&& (error.textContent.indexOf('Wayback Machine doesn\'t have that page archived.') != -1
 		|| error.textContent.indexOf('This url is not available on the live web or can not be archived.') != -1)
-	&& form1 && form1[0]))
+	&& form1 && form1[0])
 {
 	var reqUrlInput = form1[0].getElementsByTagName('input')[0];
 	if (reqUrlInput && reqUrlInput.value)
