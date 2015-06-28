@@ -8,6 +8,6 @@ If you plan to add a bunch of pages, manually clicking the link can get pretty a
 This userscript auto-clicks "Save this url in the Wayback Machine" when a missing page was visited.
 
 ## Installation
-1. Install [Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) (Firefox) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) (Chrome).
+1. Install [Greasemonkey](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/) (Firefox) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) (Chrome) / [Tampermonkey Beta](https://addons.opera.com/en/extensions/details/tampermonkey-beta/) (Opera).
 2. Open `https://github.com/PotcFdk/ArchiveOrgAutoSaver/raw/master/Archive.org_AutoSaver.user.js` or click [here](https://github.com/PotcFdk/ArchiveOrgAutoSaver/raw/master/Archive.org_AutoSaver.user.js).
 3. Click `Install`.
