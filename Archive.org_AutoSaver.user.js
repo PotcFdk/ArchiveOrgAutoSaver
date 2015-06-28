@@ -31,7 +31,7 @@ if (livewebInfo) {
 	var element = livewebInfo.getElementsByTagName("a")[0];
 	if (element && element.textContent == "Save this url in the Wayback Machine") {
 		console.log ("[Archive.org AutoSaver] Detected missing page. Redirecting...");
-		window.location = element.href;
+		window.location.href = element.href;
 	}
 }
 
