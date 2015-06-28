@@ -35,6 +35,22 @@ if (livewebInfo) {
 	}
 }
 
+var error = document.getElementById('error');
+var form1 = document.getElementsByName('form1');
+if (error && error.textContent.indexOf('Wayback Machine doesn\'t have that page archived.' != -1
+	&& form1 && form1[0]))
+{
+	var reqUrlInput = form1[0].getElementsByTagName('input')[0];
+	if (reqUrlInput && reqUrlInput.value)
+	{
+		error.innerHTML = error.innerHTML
+			+ '<p>[Archive.Org AutoSaver] <a href="//web.archive.org/save/'
+			+ reqUrlInput.value
+			+ '">Click here</a> to try to save this url anyways.</p>';
+		console.log ("[Archive.org AutoSaver] Detected not available page. Added save link.");
+	}
+}
+
 var recordDoneClose = document.getElementById('__wb_record_done_close')
 if (recordDoneClose && __on_wb_record_done_close) {
 	__on_wb_record_done_close();
