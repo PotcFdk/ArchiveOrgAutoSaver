@@ -60,3 +60,8 @@ if (recordDoneClose && __on_wb_record_done_close) {
 	__on_wb_record_done_close();
 	console.log ("[Archive.org AutoSaver] Closed 'Page saved as' window.");
 }
+
+if (go && {}.toString.call (go) == '[object Function]') {
+	console.log ("[Archive.org AutoSaver] Speeding up redirect...");
+	window.setTimeout (go, 500);
+}
