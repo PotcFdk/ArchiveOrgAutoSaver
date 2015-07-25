@@ -5,7 +5,7 @@
 // @description Auto-saves all missing pages that you might encounter.
 // @include     https://web.archive.org/web/*
 // @include     https://web.archive.org/save/*
-// @version     0.0.8
+// @version     0.0.9
 // @grant       none
 // @downloadURL https://raw.githubusercontent.com/PotcFdk/ArchiveOrgAutoSaver/master/Archive.org_AutoSaver.user.js
 // @updateURL   https://raw.githubusercontent.com/PotcFdk/ArchiveOrgAutoSaver/master/Archive.org_AutoSaver.meta.js
