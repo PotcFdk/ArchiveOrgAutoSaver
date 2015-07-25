@@ -27,6 +27,24 @@
 	limitations under the License.
 */
 
+function setExtendedMode (onoff)
+{
+	if (onoff) {
+		localStorage.setItem ('AOAS_ExtendedMode', true);
+		console.log ('[Archive.org AutoSaver] Enabled extended mode for this session.');
+	} else {
+		localStorage.setItem ('AOAS_ExtendedMode', false);
+		console.log ('[Archive.org AutoSaver] Disabled extended mode for this session.');
+	}
+}
+
+function isExtendedModeEnabled ()
+{
+	return !!JSON.parse (localStorage.getItem ('AOAS_ExtendedMode'));
+}
+
+// Handlers
+
 var livewebInfo = document.getElementById('livewebInfo');
 if (livewebInfo) {
 	var saveLink = livewebInfo.getElementsByTagName ("a");
@@ -48,11 +66,16 @@ if (error && error.textContent
 	var reqUrlInput = form1[0].getElementsByTagName ('input');
 	if (reqUrlInput && reqUrlInput[0] && reqUrlInput[0].value)
 	{
-		error.innerHTML = error.innerHTML
-			+ '<p>[Archive.Org AutoSaver] <a href="//web.archive.org/save/'
-			+ reqUrlInput[0].value
-			+ '">Click here</a> to try to save this url anyways.</p>';
-		console.log ("[Archive.org AutoSaver] Detected not available page. Added save link.");
+		if (isExtendedModeEnabled ()) {
+			console.log ("[Archive.org AutoSaver] Detected not available page. Extended mode is enabled, redirecting...");
+			window.location.href = '//web.archive.org/save/' + reqUrlInput[0].value;
+		} else {
+			error.innerHTML = error.innerHTML
+				+ '<p>[Archive.Org AutoSaver] <a href="//web.archive.org/save/'
+				+ reqUrlInput[0].value
+				+ '">Click here</a> to try to save this url anyways.</p>';
+			console.log ("[Archive.org AutoSaver] Detected not available page. Added save link.");
+		}
 	}
 }
 
