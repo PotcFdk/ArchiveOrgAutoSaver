@@ -43,6 +43,38 @@ function isExtendedModeEnabled ()
 	return !!JSON.parse (localStorage.getItem ('AOAS_ExtendedMode'));
 }
 
+// UI
+
+var tds = document.getElementsByTagName ('td');
+for (var td of tds) {
+	if (td.className == 'r') {
+		var settings = document.createElement ('div');
+		settings.setAttribute ('style', 'width: 25em; position: absolute; right: 0; top: 0;');
+		settings.innerHTML = '<p>Archive.org AutoSaver</p>';
+		
+		var checkbox = document.createElement ('input');
+		checkbox.type = 'checkbox';
+		checkbox.id = 'archiveorgautosaverextendedmode';
+		if (isExtendedModeEnabled ())
+			checkbox.checked = 'true';
+
+		var label = document.createElement ('label')
+		label.htmlFor = 'archiveorgautosaverextendedmode';
+		label.appendChild (document.createTextNode ('Enable auto-archive for unavailable pages.'));
+
+		settings.appendChild (checkbox);
+		settings.appendChild (label);
+
+		td.insertBefore (settings, td.firstChild);
+		
+		// Hooking
+		
+		checkbox.addEventListener ('click', function (evt) {
+			setExtendedMode (evt.target.checked);
+		}, false);
+	}
+}
+
 // Handlers
 
 var livewebInfo = document.getElementById('livewebInfo');
